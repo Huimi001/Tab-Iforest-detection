@@ -4,3 +4,7 @@ Tab-Iforest_Files
 https://www.aliyundrive.com/s/TkoCM5vN4GH  
 提取码: f8z5  
 下载后解压site-package文件放到“wjhproject/venv/Lib/site-packages”目录下  
+  
+Tab-Iforest异常检测算法发表的论文在  
+https://ieeexplore.ieee.org/abstract/document/9758411  
+可访问下载PDF版进行查看
