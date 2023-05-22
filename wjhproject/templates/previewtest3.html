@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:myapp="http://www.w3.org/1999/xhtml">
+   <head>
+      <!-- basic -->
+      <title>数据预览</title>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title></title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- site icon -->
+      <link rel="icon" href="../static/images/fevicon.png" type="image/png" />
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
+      <!-- site css -->
+      <link rel="stylesheet" href="../static/style.css" />
+      <!-- responsive css -->
+      <link rel="stylesheet" href="../static/css/responsive.css" />
+      <!-- color css -->
+      <link rel="stylesheet" href="../static/css/colors.css" />
+      <!-- select bootstrap -->
+      <link rel="stylesheet" href="../static/css/bootstrap-select.css" />
+      <!-- scrollbar css -->
+      <link rel="stylesheet" href="../static/css/perfect-scrollbar.css" />
+      <!-- custom css -->
+      <link rel="stylesheet" href="../static/css/custom.css" />
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+   </head>
+   <body class="dashboard dashboard_1">
+      <div class="full_container">
+         <div>
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+               <div class="sidebar_blog_1">
+                  <div class="sidebar-header">
+                     <div class="logo_section">
+                        <a href="/index"><img class="logo_icon img-responsive" src="../static/images/logo/logo_icon.png" alt="#" /></a>
+                     </div>
+                  </div>
+                  <div class="sidebar_user_info">
+                     <div class="icon_setting"></div>
+                     <div class="user_profle_side">
+                        <div class="user_img"><img class="img-responsive" src="../static/images/layout_img/wang.jpg" alt="#" /></div>
+                        <div class="user_info">
+                           <h6>{{ request.session.username }}</h6>
+                           <p><span class="online_animation"></span> Online</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="sidebar_blog_2">
+                  <h4>General</h4>
+                  <ul class="list-unstyled components">
+                     <li class="active">
+                        <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dashboard yellow_color"></i> <span>数据管理</span></a>
+                        <ul class="collapse list-unstyled" id="dashboard">
+                           <li>
+                              <a href="updata"> <span>数据上传</span></a>
+                           </li>
+                           <li>
+                              <a href="datasetlist"> <span>数据预览</span></a>
+                           </li>
+                        </ul>
+                     </li>
+                     <li><a href="tables.html"><i class="fa fa-table purple_color2"></i><span>我的项目</span></a></li>
+                     <li><a href="startproject"><i class="fa fa-briefcase blue1_color"></i> <span>工程运行</span></a></li>
+<!--                     <li><a href="charts.html"><i class="fa fa-bar-chart-o green_color"></i> <span>可视化</span></a></li>-->
+                     <li><a href="profile_edit"><i class="fa fa-cog yellow_color"></i> <span>个人中心</span></a></li>
+                  </ul>
+               </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+               <!-- topbar -->
+               <div class="topbar">
+                  <nav class="navbar navbar-expand-lg navbar-light">
+                     <div class="full">
+                        <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                        <div class="logo_section">
+                           <a href="/index"><img class="img-responsive" src="../static/images/logo/logo_icon4.png" alt="#" /></a>
+                        </div>
+                        <div class="right_topbar">
+                           <div class="icon_info">
+                              <ul class="user_profile_dd">
+                                 <li>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="../static/images/layout_img/wang.jpg" alt="#" /><span class="name_user">{{ request.session.username }}</span></a>
+                                    <div class="dropdown-menu">
+                                       <a class="dropdown-item" href="profile_edit">My Profile</a>
+<!--                                       <a class="dropdown-item" href="settings.html">Settings</a>-->
+<!--                                       <a class="dropdown-item" href="help.html">Help</a>-->
+                                       <a class="dropdown-item" href="logout"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                    </div>
+                                 </li>
+                              </ul>
+
+                           </div>
+                        </div>
+                     </div>
+                  </nav>
+               </div>
+               <div style="width:1000px; height:420px; overflow:scroll;margin-left:40px;margin-top:80px;" align="center">
+                   <h3>{{ request.session.datasetid }}</h3>
+                  <table border="1" class="table table-striped" align="center">
+                        {% csrf_token %}
+                        {% for line in test_data %}
+                        <tr>
+                            {% for i in line %}
+                                <td>{{ i }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </table>
+             </div>
+                {#显示分页导航栏--start#}
+                  <div class="kkk" style="margin-left:1100px;margin-top:10px;">
+                  <ul class="pagination" id="pager" >
+                   {#上一页按钮开始#}
+                   {# 如果当前页有上一页#}
+                   {% if test_data.has_previous %}
+                   {# 当前页的上一页按钮正常使用#}
+                   <li class="previous"><a href="/turnpage/?page={{ test_data.previous_page_number }}" >上一页</a></li>
+                   {% else %}
+                   {# 当前页的不存在上一页时,上一页的按钮不可用#}
+                   <li class="previous disabled"><a href="#" >上一页</a></li>
+                   {% endif %}
+                   {#上一页按钮结束#}
+
+                   {# 页码开始#}
+                   {% for num in paginator.page_range %}
+                   {% if num == currentPage %}
+                    <li class="liactive"><a class="selected" href="/turnpage/?page={{ num }}" >{{ num }}</a></li>
+                   {% else %}
+                    <li class="itemli"><a href="/turnpage/?page={{ num }}" >{{ num }}</a></li>
+                   {% endif %}
+                   {% endfor %}
+                   {#页码结束#}
+
+                   {# 下一页按钮开始#}
+                   {% if test_data.has_next %}
+                   <li class="next"><a href="/turnpage/?page={{ test_data.next_page_number }}" >下一页</a></li>
+                   {% else %}
+                   <li class="next disabled"><a href="#" >下一页</a></li>
+                   {% endif %}
+                   {# 下一页按钮结束#}
+                  </ul>
+                  </div>
+                  {#显示分页导航栏--end#}
+               <!-- end topbar -->
+               <!-- dashboard inner -->
+               <div class="midde_cont">
+                  <!-- footer -->
+                  <div class="container-fluid">
+                     <div class="footer" id="footer">
+                        <p>Copyright &copy; 2021.Huimi Wong All rights reserved.</p>
+                     </div>
+                  </div>
+               </div>
+               <!-- end dashboard inner -->
+            </div>
+         </div>
+      </div>
+      <script src="../static/assets/jstable.min.js"></script>
+       <script>
+           new JSTable("#basic");
+       </script>
+      <!-- jQuery -->
+      <script src="../static/js/jquery.min.js"></script>
+      <script src="../static/js/popper.min.js"></script>
+      <script src="../static/js/bootstrap.min.js"></script>
+      <!-- wow animation -->
+      <script src="../static/js/animate.js"></script>
+      <!-- select country -->
+      <script src="../static/js/bootstrap-select.js"></script>
+      <!-- owl carousel -->
+      <script src="../static/js/owl.carousel.js"></script>
+      <!-- chart js -->
+      <script src="../static/js/Chart.min.js"></script>
+      <script src="../static/js/Chart.bundle.min.js"></script>
+      <script src="../static/js/utils.js"></script>
+      <script src="../static/js/analyser.js"></script>
+      <!-- nice scrollbar -->
+      <script src="../static/js/perfect-scrollbar.min.js"></script>
+      <script>
+         var ps = new PerfectScrollbar('#sidebar');
+      </script>
+      <!-- custom js -->
+      <script src="../static/js/custom.js"></script>
+      <script src="../static/js/chart_custom_style1.js"></script>
+	  <style>
+        .copyrights{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}
+        #footer {
+        position: absolute;
+        bottom: 0;
+        width: 79%;
+        height: 60px;
+        clear:both;
+        }
+      </style>
+   </body>
+</html>

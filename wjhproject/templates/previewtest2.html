@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>jquery.yhhDataTable.js表格插件带分页 - www.bootstrapmb.com</title>
+
+<link rel="stylesheet" type="text/css" href="../static/css2/font-awesome.min.css">
+<link rel="stylesheet" href="../static/css2/jquery.paginate.css" />
+<link rel="stylesheet" href="../static/css2/jquery.yhhDataTable.css" />
+
+<script type="text/javascript" src="../static/js2/jquery.min.js"></script>
+<script type="text/javascript" src="../static/js2/jquery.paginate.js" ></script>
+<script type="text/javascript" src="../static/js2/jquery.yhhDataTable.js" ></script>
+<script type="text/javascript" src="../static/js2/index.js" ></script>
+
+</head>
+<body style="padding-bottom:10px;">
+
+<div style="width:980px;margin:20px auto;">
+	
+	<table id="testtable1">
+		<{% csrf_token %}
+             {% for line in test_data %}
+                <tr>
+                    {% for i in line %}
+                    <td>{{ i }}</td>
+                    {% endfor %}
+                </tr>
+		{% endfor %}
+	</table>
+</div>
+</body>
+</html>

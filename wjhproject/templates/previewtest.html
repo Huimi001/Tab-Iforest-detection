@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:myapp="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>带分页的表格插件</title>
+    <link rel="stylesheet" href="../static/assets/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/assets/jstable.css" />
+    <style>
+        body {
+            background-color: #fafafa;
+        }
+
+        .container {
+            margin: 150px auto;
+            max-width: 960px;
+        }
+    </style>
+</head>
+
+<body>
+     <div class="container">
+         <table id="basic" class="table table-bordered table-striped">
+            {% csrf_token %}
+             {% for line in test_data %}
+                <tr>
+                    {% for i in line %}
+                    <td>{{ i }}</td>
+                    {% endfor %}
+                </tr>
+             {% endfor %}
+        </table>
+    </div>
+</body>
+<script src="../static/assets/jstable.min.js"></script>
+    <script>
+        new JSTable("#basic");
+    </script>
+</html>

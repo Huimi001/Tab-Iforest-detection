@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:myapp="http://www.w3.org/1999/xhtml">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title></title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- site icon -->
+      <link rel="icon" href="../static/images/fevicon.png" type="image/png" />
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
+      <!-- site css -->
+      <link rel="stylesheet" href="../static/style.css" />
+      <!-- responsive css -->
+      <link rel="stylesheet" href="../static/css/responsive.css" />
+      <!-- color css -->
+      <link rel="stylesheet" href="../static/css/colors.css" />
+      <!-- select bootstrap -->
+      <link rel="stylesheet" href="../static/css/bootstrap-select.css" />
+      <!-- scrollbar css -->
+      <link rel="stylesheet" href="../static/css/perfect-scrollbar.css" />
+      <!-- custom css -->
+      <link rel="stylesheet" href="../static/css/custom.css" />
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+   </head>
+   <body class="dashboard dashboard_1">
+      <div class="full_container">
+            <!-- Sidebar  -->
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+               <!-- topbar -->
+               <div class="topbar">
+                  <nav class="navbar navbar-expand-lg navbar-light">
+                     <div class="full">
+                        <div class="logo_section">
+                           <a href="login"><img class="img-responsive" src="../static/images/logo/logo.png" alt="#" /></a>
+                        </div>
+                     </div>
+                  </nav>
+               </div>
+               <!-- end topbar -->
+               <!-- dashboard inner -->
+               <div class="midde_cont">
+                  <!-- footer -->
+                  <div class="container-fluid">
+                      <div align="center">
+                       <form action="/register" method="post">
+                           {% csrf_token %}
+                            <span>
+                                用户:<input type="text" name="username">
+                            </span>
+                            <br/><br/>
+                            <span>
+                                密码:<input type="password" name="password">
+                            </span>
+                            <br/><br/>
+                           <span>
+                                性别:
+                               <select>
+                                  <option value ="男" name="gender">男</option>
+                                  <option value ="女" name="gender">女</option>
+                                </select>
+                            </span>
+                           <br/><br/>
+                           <span>
+                                电话:<input type="text" name="tel">
+                            </span>
+                           <br/><br/>
+                            <span>
+                                <input type="submit" name="submit1" value="注册">
+                            </span>
+                        </form>
+                   </div>
+                     <div class="footer" id="footer">
+                        <p>Copyright &copy; 2021.Huimi Wong All rights reserved.</p>
+                     </div>
+                  </div>
+               </div>
+               <!-- end dashboard inner -->
+         </div>
+      </div>
+      <!-- jQuery -->
+      <script src="../static/js/jquery.min.js"></script>
+      <script src="../static/js/popper.min.js"></script>
+      <script src="../static/js/bootstrap.min.js"></script>
+      <!-- wow animation -->
+      <script src="../static/js/animate.js"></script>
+      <!-- select country -->
+      <script src="../static/js/bootstrap-select.js"></script>
+      <!-- owl carousel -->
+      <script src="../static/js/owl.carousel.js"></script>
+      <!-- chart js -->
+      <script src="../static/js/Chart.min.js"></script>
+      <script src="../static/js/Chart.bundle.min.js"></script>
+      <script src="../static/js/utils.js"></script>
+      <script src="../static/js/analyser.js"></script>
+      <!-- nice scrollbar -->
+      <script src="../static/js/perfect-scrollbar.min.js"></script>
+      <script>
+         var ps = new PerfectScrollbar('#sidebar');
+      </script>
+      <!-- custom js -->
+      <script src="../static/js/custom.js"></script>
+      <script src="../static/js/chart_custom_style1.js"></script>
+	  <style>
+        .copyrights{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}
+        #footer {
+        position: absolute;
+        bottom: 0;
+        width: 79%;
+        height: 60px;
+        clear:both;
+        }
+      </style>
+   </body>
+</html>

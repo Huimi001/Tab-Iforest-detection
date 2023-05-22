@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:myapp="http://www.w3.org/1999/xhtml">
+   <head>
+      <!-- basic -->
+      <title>首页</title>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title></title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- site icon -->
+      <link rel="icon" href="../static/images/fevicon.png" type="image/png" />
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
+      <!-- site css -->
+      <link rel="stylesheet" href="../static/style.css" />
+      <!-- responsive css -->
+      <link rel="stylesheet" href="../static/css/responsive.css" />
+      <!-- color css -->
+      <link rel="stylesheet" href="../static/css/colors.css" />
+      <!-- select bootstrap -->
+      <link rel="stylesheet" href="../static/css/bootstrap-select.css" />
+      <!-- scrollbar css -->
+      <link rel="stylesheet" href="../static/css/perfect-scrollbar.css" />
+      <!-- custom css -->
+      <link rel="stylesheet" href="../static/css/custom.css" />
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+   </head>
+   <body class="dashboard dashboard_1">
+      <div class="full_container">
+         <div class="inner_container">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+               <div class="sidebar_blog_1">
+                  <div class="sidebar-header">
+                     <div class="logo_section">
+                        <a href="/index"><img class="logo_icon img-responsive" src="../static/images/logo/logo_icon.png" alt="#" /></a>
+                     </div>
+                  </div>
+                  <div class="sidebar_user_info">
+                     <div class="icon_setting"></div>
+                     <div class="user_profle_side">
+                        <div class="user_img"><img class="img-responsive" src="../static/images/layout_img/wang.jpg" alt="#" /></div>
+                        <div class="user_info">
+                           <h6>{{ request.session.username }}</h6>
+                           <p><span class="online_animation"></span> Online</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="sidebar_blog_2">
+                  <h4>General</h4>
+                  <ul class="list-unstyled components">
+                     <li class="active">
+                        <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dashboard yellow_color"></i> <span>数据管理</span></a>
+                        <ul class="collapse list-unstyled" id="dashboard">
+                           <li>
+                              <a href="updata"> <span>数据上传</span></a>
+                           </li>
+                           <li>
+                              <a href="datasetlist"> <span>数据预览</span></a>
+                           </li>
+                        </ul>
+                     </li>
+                     <li><a href="projectlist"><i class="fa fa-table purple_color2"></i><span>我的项目</span></a></li>
+                     <li><a href="startproject"><i class="fa fa-briefcase blue1_color"></i> <span>工程运行</span></a></li>
+<!--                     <li><a href="charts.html"><i class="fa fa-bar-chart-o green_color"></i> <span>可视化</span></a></li>-->
+                     <li><a href="profile_edit"><i class="fa fa-cog yellow_color"></i> <span>个人中心</span></a></li>
+                  </ul>
+               </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+               <!-- topbar -->
+               <div class="topbar">
+                  <nav class="navbar navbar-expand-lg navbar-light">
+                     <div class="full">
+                        <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                        <div class="logo_section">
+                           <a href="index"><img class="img-responsive" src="../static/images/logo/logo_icon4.png" alt="#" /></a>
+                        </div>
+                        <div class="right_topbar">
+                           <div class="icon_info">
+                              <ul class="user_profile_dd">
+                                 <li>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="../static/images/layout_img/wang.jpg" alt="#" /><span class="name_user">{{ request.session.username }}</span></a>
+                                    <div class="dropdown-menu">
+                                       <a class="dropdown-item" href="profile_edit">My Profile</a>
+<!--                                       <a class="dropdown-item" href="settings.html">Settings</a>-->
+<!--                                       <a class="dropdown-item" href="help.html">Help</a>-->
+                                       <a class="dropdown-item" href="logout"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                    </div>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </nav>
+               </div>
+               <!-- end topbar -->
+               <!-- dashboard inner -->
+               <div class="midde_cont">
+                  <div class="container-fluid">
+                     <div class="row column_title">
+                        <div class="col-md-12">
+                           <div class="page_title">
+                              <h1>关 注 我 们</h1>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row column1">
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full counter_section margin_bottom_30">
+                              <div class="couter_icon">
+                                 <div>
+                                    <i class="fa fa-user yellow_color"></i>
+                                 </div>
+                              </div>
+                              <div class="counter_no">
+                                 <div>
+                                    <p class="total_no">2500</p>
+                                    <p class="head_couter">Welcome</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full counter_section margin_bottom_30">
+                              <div class="couter_icon">
+                                 <div>
+                                    <i class="fa fa-clock-o blue1_color"></i>
+                                 </div>
+                              </div>
+                              <div class="counter_no">
+                                 <div>
+                                    <p class="total_no">123.50</p>
+                                    <p class="head_couter">Average Time</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full counter_section margin_bottom_30">
+                              <div class="couter_icon">
+                                 <div>
+                                    <i class="fa fa-cloud-download green_color"></i>
+                                 </div>
+                              </div>
+                              <div class="counter_no">
+                                 <div>
+                                    <p class="total_no">1,805</p>
+                                    <p class="head_couter">Collections</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full counter_section margin_bottom_30">
+                              <div class="couter_icon">
+                                 <div>
+                                    <i class="fa fa-comments-o red_color"></i>
+                                 </div>
+                              </div>
+                              <div class="counter_no">
+                                 <div>
+                                    <p class="total_no">54</p>
+                                    <p class="head_couter">Comments</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row column1 social_media_section">
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full socile_icons fb margin_bottom_30">
+                              <div class="social_icon">
+                                 <i class="fa fa-facebook"></i>
+                              </div>
+                              <div class="social_cont">
+                                 <ul>
+                                    <li>
+                                       <span><strong>35k</strong></span>
+                                       <span>Friends</span>
+                                    </li>
+                                    <li>
+                                       <span><strong>128</strong></span>
+                                       <span>Feeds</span>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full socile_icons tw margin_bottom_30">
+                              <div class="social_icon">
+                                 <i class="fa fa-twitter"></i>
+                              </div>
+                              <div class="social_cont">
+                                 <ul>
+                                    <li>
+                                       <span><strong>584k</strong></span>
+                                       <span>Followers</span>
+                                    </li>
+                                    <li>
+                                       <span><strong>978</strong></span>
+                                       <span>Tweets</span>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full socile_icons linked margin_bottom_30">
+                              <div class="social_icon">
+                                 <i class="fa fa-linkedin"></i>
+                              </div>
+                              <div class="social_cont">
+                                 <ul>
+                                    <li>
+                                       <span><strong>758+</strong></span>
+                                       <span>Contacts</span>
+                                    </li>
+                                    <li>
+                                       <span><strong>365</strong></span>
+                                       <span>Feeds</span>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full socile_icons google_p margin_bottom_30">
+                              <div class="social_icon">
+                                 <i class="fa fa-google-plus"></i>
+                              </div>
+                              <div class="social_cont">
+                                 <ul>
+                                    <li>
+                                       <span><strong>450</strong></span>
+                                       <span>Followers</span>
+                                    </li>
+                                    <li>
+                                       <span><strong>57</strong></span>
+                                       <span>Circles</span>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- graph -->
+<!--                     <div class="row column2 graph margin_bottom_30">-->
+<!--                        <div class="col-md-l2 col-lg-12">-->
+<!--                           <div class="white_shd full">-->
+<!--                              <div class="full graph_head">-->
+<!--                                 <div class="heading1 margin_0">-->
+<!--                                    <h1>实 例 图 表</h1>-->
+<!--                                 </div>-->
+<!--                              </div>-->
+<!--                              <div class="full graph_revenue">-->
+<!--                                 <div class="row">-->
+<!--                                    <div class="col-md-12">-->
+<!--                                       <div class="content">-->
+<!--                                          <div class="area_chart">-->
+<!--                                             <canvas height="120" id="canvas"></canvas>-->
+<!--                                          </div>-->
+<!--                                       </div>-->
+<!--                                    </div>-->
+<!--                                 </div>-->
+<!--                              </div>-->
+<!--                           </div>-->
+<!--                        </div>-->
+<!--                     </div>-->
+                     <!-- end graph -->
+                     <div class="row column3">
+                        <!-- testimonial -->
+                        <div class="col-md-6">
+                           <div class="dark_bg full margin_bottom_30">
+                              <div class="full graph_head">
+                                 <div class="heading1 margin_0">
+                                    <h2>用户信息</h2>
+                                 </div>
+                              </div>
+                              <div class="full graph_revenue">
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                       <div class="content testimonial">
+                                          <div id="testimonial_slider" class="carousel slide" data-ride="carousel">
+                                             <!-- Wrapper for carousel items -->
+                                             <div class="carousel-inner">
+                                                <div class="item carousel-item active">
+                                                   <div class="img-box"><img src="../static/images/layout_img/wang.jpg" alt=""></div>
+                                                   <p class="testimonial">北京信息科技大学信息管理学院信息管理与信息系统在读本科生</p>
+                                                   <p class="overview"><b>Huimi Wong</b>了解更多</p>
+                                                </div>
+                                                <div class="item carousel-item">
+                                                   <div class="img-box"><img src="../static/images/layout_img/wang.jpg" alt=""></div>
+                                                   <p class="testimonial">“我若是游子，你便是人间”</p>
+                                                   <p class="overview"><b>Huimi Wong</b>了解更多</p>
+                                                </div>
+                                             </div>
+                                             <!-- Carousel controls -->
+                                             <a class="carousel-control left carousel-control-prev" href="#testimonial_slider" data-slide="prev">
+                                             <i class="fa fa-angle-left"></i>
+                                             </a>
+                                             <a class="carousel-control right carousel-control-next" href="#testimonial_slider" data-slide="next">
+                                             <i class="fa fa-angle-right"></i>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <!-- end testimonial -->
+                        <!-- progress bar -->
+                        <div class="col-md-6">
+                           <div class="white_shd full margin_bottom_30">
+                              <div class="full graph_head">
+                                 <div class="heading1 margin_0">
+                                    <h2>各平台关注数相较前日增加比例</h2>
+                                 </div>
+                              </div>
+                              <div class="full progress_bar_inner">
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                       <div class="progress_bar">
+                                          <!-- Skill Bars -->
+                                          <span class="skill" style="width:73%;">Facebook <span class="info_valume">73%</span></span>
+                                          <div class="progress skill-bar ">
+                                             <div class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100" style="width: 73%;">
+                                             </div>
+                                          </div>
+                                          <span class="skill" style="width:62%;">Twitter <span class="info_valume">62%</span></span>
+                                          <div class="progress skill-bar">
+                                             <div class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%;">
+                                             </div>
+                                          </div>
+                                          <span class="skill" style="width:54%;">Instagram <span class="info_valume">54%</span></span>
+                                          <div class="progress skill-bar">
+                                             <div class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" aria-valuenow="54" aria-valuemin="0" aria-valuemax="100" style="width: 54%;">
+                                             </div>
+                                          </div>
+                                          <span class="skill" style="width:82%;">Google plus <span class="info_valume">82%</span></span>
+                                          <div class="progress skill-bar">
+                                             <div class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" style="width: 82%;">
+                                             </div>
+                                          </div>
+                                          <span class="skill" style="width:48%;">Other <span class="info_valume">48%</span></span>
+                                          <div class="progress skill-bar">
+                                             <div class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100" style="width: 48%;">
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <!-- end progress bar -->
+                     </div>
+                     <div class="row column4 graph">
+                        <div class="col-md-6 margin_bottom_30">
+                           <div class="dash_blog">
+                              <div class="dash_blog_inner">
+                                 <div class="dash_head">
+                                    <h3><span><i class="fa fa-calendar"></i> 6 July 2020</span><span class="plus_green_bt" data-toggle="modal" data-target="#myModal"><a>+</a></span></h3>
+                                 </div>
+                                 <div class="list_cont">
+                                    <p>{{ request.session.username }}的便签</p>
+                                 </div>
+                                 <div class="task_list_main">
+                                    <ul class="task_list">
+                                       {% for reminder in reminder_list %}
+                                          <li><a href="#"><strong>{{ reminder.reminder_detail }}</strong></a><br><strong>{{ reminder.reminder_ctime }}</strong><div algin="right"><a href="rdelete?id={{ reminder.reminder_name }}" >删除</a></div></li>
+                                       {% endfor %}
+                                    </ul>
+                                 </div>
+                                 <div class="read_more">
+                                    <div class="center"><button class="main_bt read_bt" data-toggle="modal" data-target="#myModal">添加便签</button></div>
+                                          <div align="center"  class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                              <div class="modal-dialog">
+                                                  <div class="modal-content">
+                                                      <div class="modal-header">
+                                                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                          <h4 class="modal-title" id="myModalLabel">添加便签</h4>
+                                                      </div>
+                                                      <form action="/add_reminder" method="POST" class="modal-body">
+                                                         {% csrf_token %}
+                                                         <div class="group">
+                                                             <input type="text" placeholder="Topic" id="topic" name="remindername"/>
+                                                         </div>
+                                                         <br/>
+                                                         <div class="group">
+                                                             <input type="text" placeholder="时间" id="today" name="reminderctime"/>
+                                                         </div>
+                                                         <br/>
+                                                         <div class="group">
+                                                             <input type="text" placeholder="便签内容" style="height:80px;width:180px;font-size:12px;" name="reminderdetail"/>
+                                                         </div>
+                                                         <br/>
+                                                         <input type="submit" class="btn btn-primary" value="提交"/>
+                                                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                                     </form>
+                                                  </div><!-- /.modal-content -->
+                                              </div><!-- /.modal -->
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+<!--                        <div class="col-md-6">-->
+<!--                           <div class="dash_blog">-->
+<!--                              <div class="dash_blog_inner">-->
+<!--                                 <div class="dash_head">-->
+<!--                                    <h3><span><i class="fa fa-comments-o"></i> Updates</span><span class="plus_green_bt"><a href="#">+</a></span></h3>-->
+<!--                                 </div>-->
+<!--                                 <div class="list_cont">-->
+<!--                                    <p>User confirmation</p>-->
+<!--                                 </div>-->
+<!--                                 <div class="msg_list_main">-->
+<!--                                    <ul class="msg_list">-->
+<!--                                       <li>-->
+<!--                                          <span><img src="../static/images/layout_img/msg2.png" class="img-responsive" alt="#" /></span>-->
+<!--                                          <span>-->
+<!--                                          <span class="name_user">Herman Beck</span>-->
+<!--                                          <span class="msg_user">Sed ut perspiciatis unde omnis.</span>-->
+<!--                                          <span class="time_ago">12 min ago</span>-->
+<!--                                          </span>-->
+<!--                                       </li>-->
+<!--                                       <li>-->
+<!--                                          <span><img src="../static/images/layout_img/msg3.png" class="img-responsive" alt="#" /></span>-->
+<!--                                          <span>-->
+<!--                                          <span class="name_user">John Smith</span>-->
+<!--                                          <span class="msg_user">On the other hand, we denounce.</span>-->
+<!--                                          <span class="time_ago">12 min ago</span>-->
+<!--                                          </span>-->
+<!--                                       </li>-->
+<!--                                       <li>-->
+<!--                                          <span><img src="../static/images/layout_img/msg2.png" class="img-responsive" alt="#" /></span>-->
+<!--                                          <span>-->
+<!--                                          <span class="name_user">John Smith</span>-->
+<!--                                          <span class="msg_user">Sed ut perspiciatis unde omnis.</span>-->
+<!--                                          <span class="time_ago">12 min ago</span>-->
+<!--                                          </span>-->
+<!--                                       </li>-->
+<!--                                       <li>-->
+<!--                                          <span><img src="../static/images/layout_img/msg3.png" class="img-responsive" alt="#" /></span>-->
+<!--                                          <span>-->
+<!--                                          <span class="name_user">John Smith</span>-->
+<!--                                          <span class="msg_user">On the other hand, we denounce.</span>-->
+<!--                                          <span class="time_ago">12 min ago</span>-->
+<!--                                          </span>-->
+<!--                                       </li>-->
+<!--                                    </ul>-->
+<!--                                 </div>-->
+<!--                                 <div class="read_more">-->
+<!--                                    <div class="center"><a class="main_bt read_bt" href="#">Read More</a></div>-->
+<!--                                 </div>-->
+<!--                              </div>-->
+<!--                           </div>-->
+<!--                        </div>-->
+                     </div>
+                  </div>
+                  <!-- footer -->
+                  <div class="container-fluid">
+                     <div class="footer" id="footer">
+                        <p>Copyright &copy; 2021.Huimi Wong All rights reserved.</p>
+                     </div>
+                  </div>
+               </div>
+               <!-- end dashboard inner -->
+            </div>
+         </div>
+      </div>
+      <!-- jQuery -->
+      <script src="../static/js/jquery.min.js"></script>
+      <script src="../static/js/popper.min.js"></script>
+      <script src="../static/js/bootstrap.min.js"></script>
+      <!-- wow animation -->
+      <script src="../static/js/animate.js"></script>
+      <!-- select country -->
+      <script src="../static/js/bootstrap-select.js"></script>
+      <!-- owl carousel -->
+      <script src="../static/js/owl.carousel.js"></script>
+      <!-- chart js -->
+      <script src="../static/js/Chart.min.js"></script>
+      <script src="../static/js/Chart.bundle.min.js"></script>
+      <script src="../static/js/utils.js"></script>
+      <script src="../static/js/analyser.js"></script>
+      <!-- nice scrollbar -->
+      <script src="../static/js/perfect-scrollbar.min.js"></script>
+      <script>
+         var ps = new PerfectScrollbar('#sidebar');
+      </script>
+      <!-- custom js -->
+      <script src="../static/js/custom.js"></script>
+      <script src="../static/js/chart_custom_style1.js"></script>
+	  <style>
+         .copyrights{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}
+         #footer {
+        position: absolute;
+        bottom: 0;
+        width: 79%;
+        height: 60px;
+        clear:both;
+        }
+      </style>
+      {% if messages %}
+        <script>
+            {% for msg in messages %}
+                alert('{{ msg.message }}');
+            {% endfor %}
+        </script>
+      {% endif %}
+   <script type="text/javascript">
+    function today(){
+        var today=new Date();
+        var h=today.getFullYear();
+        var m=today.getMonth()+1;
+        var d=today.getDate();
+        var H = today.getHours();
+        var M = today.getMinutes();
+        var S = today.getSeconds();
+        return h+"-"+m+"-"+d+" "+H+":"+M+":"+S;
+   }
+   document.getElementById("today").value = today();
+   </script>
+   </body>
+</html>

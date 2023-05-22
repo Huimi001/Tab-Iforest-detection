@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>登录和注册</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="../static/css/stylelogin.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div>
+	<h1 class="form__title" style="color:white"><b>数据异常检测系统</b></h1>
+</div>
+<div class="container right-panel-active">
+			<!-- Sign Up -->
+			<div class="container__form container--signup">
+				<form action="/login" method="post" class="form" id="form1">
+					{% csrf_token %}
+					<h2 class="form__title">登 录</h2>
+					<input type="text" placeholder="用户名" class="input" name="username"/>
+					<input type="password" placeholder="密码" class="input" id="pass" name="password" data-role = "none"/>
+					<input type="text" placeholder="验证码" class="input" name="yanzheng"><img src="../static/images/yanzheng.png"><a href="/update_yanzheng">看不清</a>
+					<a href="#" class="link">忘记密码?</a>
+					<input type="submit" class="btn" value="登录"/>
+				</form>
+			</div>
+
+			<!-- Sign In -->
+			<div class="container__form container--signin">
+				<form action="/register" method="post" class="form" id="form2">
+					{% csrf_token %}
+					<h2 class="form__title">注 册</h2>
+					<input type="text" placeholder="用户名" class="input" name="username"/>
+					<input type="password" placeholder="密码" class="input" name="password"/>
+                    <span>性别:
+                               <select name="gender">
+                                  <option value ="男" name="gender">男</option>
+                                  <option value ="女" name="gender">女</option>
+                                </select>
+					</span>
+					<input type="text" placeholder="电话" class="input" name="tel"/>
+					<input type="submit" class="btn" value="注册"/>
+				</form>
+			</div>
+
+			<!-- Overlay -->
+			<div class="container__overlay">
+				<div class="overlay">
+					<div class="overlay__panel overlay--left">
+						<button class="btn" id="signUp">注 册</button>
+					</div>
+					<div class="overlay__panel overlay--right">
+						<button class="btn" id="signIn">登 录</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer" id="footer">
+			<p style="color:white">Copyright &copy; 2021.Huimi Wong All rights reserved.</p>
+		</div>
+<!-- partial -->
+  <script>
+  	const signInBtn = document.getElementById("signUp");
+	const signUpBtn = document.getElementById("signIn");
+	const fistForm = document.getElementById("form2");
+	const secondForm = document.getElementById("form1");
+	const container = document.querySelector(".container");
+	signInBtn.addEventListener("click", () => {
+	container.classList.remove("right-panel-active");
+});
+
+	signUpBtn.addEventListener("click", () => {
+	container.classList.add("right-panel-active");
+});
+  </script>
+	{% if messages %}
+	<script>
+       {% for msg in messages %}
+           alert('{{ msg.message }}');
+       {% endfor %}
+    </script>
+      {% endif %}
+</body>
+</html>
